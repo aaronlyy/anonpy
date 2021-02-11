@@ -33,20 +33,29 @@ class Anonfiles:
         else:
             raise AnonfilesError("-1")
 
+    def info(self):
+        pass
+
+    def download(self, path):
+        pass
+
 class AnonfilesResponse:
     """Response of an Anonfile Request
     """
     def __init__(self, response):
         self._response = response
 
-    def json(self):
-        return self._response.json()
-
     def __getattr__(self, attr):
         if attr in self._response.json():
             return self._response.json()[attr]
         else:
             return None
+
+    def __repr__(self):
+        return f"AnonfileResponse: Success: {self._response.json()['status']}"
+    
+    def json(self):
+        return self._response.json()
 
 class AnonfilesError(Exception):
     def __init__(self, code):
