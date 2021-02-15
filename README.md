@@ -4,13 +4,14 @@ anonpy is a wrapper around the anonfiles.com API.
 
 ## Features
 
-- Upload files
-- Upload files directly into your account with an API Key
+- Upload files (with or without API key)
+- Get information about uploaded files
+- Proxy support
 
 ## TODO
 
-- Get information about uploaded files
 - Download files
+- Progress Callbacks while uploading
 
 ## Install
 

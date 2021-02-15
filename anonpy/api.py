@@ -33,8 +33,17 @@ class Anonfiles:
         else:
             raise AnonfilesError("-1")
 
-    def info(self):
-        pass
+    def info(self, id: str, proxies: dict=None):
+        """Get info about files
+
+        Args:
+            id (str): file id
+
+        Returns:
+            AnonfilesResponse: Response object
+        """
+        response = requests.get(self._endpoint_info.format(id=id), proxies=proxies)
+        return AnonfilesResponse(response)
 
     def download(self, path):
         pass
